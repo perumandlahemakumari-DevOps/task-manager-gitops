@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: task-manager
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  namespaceSelector:
+    matchNames:
+      - task-manager
+  selector:
+    matchLabels:
+      app: task-manager
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s
