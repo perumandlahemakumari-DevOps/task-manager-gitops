@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: task-manager-local
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/perumandlahemakumari-DevOps/task-manager-gitops.git
+    targetRevision: main
+    path: apps/task-manager/local
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: task-manager
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
