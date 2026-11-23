@@ -25,7 +25,7 @@ spec:
                 name: postgres-secret
       containers:
         - name: app
-          image: ghcr.io/perumandlahemakumari-devops/task-manager:sha-93bfce7afd78185dcb4030f0f0d7f6de861b9d9d
+          image: ghcr.io/perumandlahemakumari-devops/task-manager:sha-551ca9005b90b844fb4dece9b01db30172434e04
           imagePullPolicy: Always
           ports:
             - name: http
